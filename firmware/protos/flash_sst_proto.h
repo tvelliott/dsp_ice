@@ -1,0 +1,17 @@
+extern uint8_t manf_id[];
+extern volatile int flash0_busy_flg;
+extern volatile int flash1_busy_flg;
+void init_flash_sst PROTO ((void));
+void wait_for_flash (int id );
+uint8_t * flash_get_manf_id (int id );
+void flash_unprotect_all (int id );
+void flash_read (uint32_t address , uint8_t *buffer , int16_t len , int id );
+void test_flash (int id );
+void flash_write_blocking (uint32_t address , uint8_t *buffer , int32_t len , int id );
+void flash_write_byte (uint32_t address , uint8_t val , int id );
+void flash_erase_4k (uint32_t erase_addr , int id );
+void flash_erase_32k (uint32_t erase_addr , int id );
+void flash_erase_64k (uint32_t erase_addr , int id );
+void flash_erase_all (int id );
+uint8_t flash_isbusy (int id );
+uint8_t flash_isprotected (int id );

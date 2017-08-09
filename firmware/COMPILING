@@ -1,0 +1,38 @@
+
+Instructions (tested on Debian 8 system)
+
+1) download GNU ARM Embedded Toolchain from here:
+
+https://launchpad.net/gcc-arm-embedded
+
+The test firmare was compiled with version: gcc-arm-none-eabi-5_4-2016q3-20160926-linux.tar.bz2
+
+2) *edit the makedefs_fp and change PRE_PREFIX to point to the absolute path of the toolchain directory
+  *optionally,  move the uncompressed toolchain folder to the project folder and rename to gnu_arm_toolchain
+
+3) From the project directory, In order to re-build the FPGA binary image, type 'sh build_fpga_image.sh'  
+  (requires that Project Icestorm tools are installed)  http://www.clifford.at/icestorm/
+
+  yosys  (synthesis tool)  
+  ice-tools  (tools for maniuplating text/binaries and programming dev boards)
+  arache-pnr  (place-and-route for specific chip implementation)  https://github.com/cseed/arachne-pnr
+
+  Note:  The fpga binary configuration image will be compressed and converted to a header file for inclusion to the MCU firmware image:  fpga_image.h
+         The compressed image in fpga_image.h will be included in fpga.c on the next mcu firmware build  (step 4)
+         The MCU uncompresses and transfers the fpga config image during startup.
+
+4) From the project directory, type 'make clean' followed by  'make'
+   The resulting binary will be copied to /tmp folder and also the build_image folder in the current project directory
+   Note: the prototypes in protos can be re-generated with 'make genprotos' if cfunctions is installed.
+
+5) An ST-Link programmer can be used to load the resulting binary (main_image_0x8000000.bin) to address 0x8000000
+
+   A $15 STM32F4 Discovery board with the jumpers set to "ST Link"  (pulled off) and a straight-thru, 6-pin 0.1" pitch cable will work.
+
+   Follow instructions for compiling OpenOCD  http://openocd.org/
+
+   start the debugger:  'sudo src/openocd -s tcl -f tcl/board/stm32f4discovery.cfg'
+
+   'telnet localhost 4444'
+    > reset halt
+    > flash write_image erase build_image/main_image_0x8000000.bin 0x8000000

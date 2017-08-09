@@ -1,0 +1,17 @@
+extern int8_t do_debug_midi;
+extern file_hdr_t file_header;
+extern const uint16_t tune_frequencies[];
+extern int tune_playing;
+extern int volume_present;
+extern const int8_t * score_start;
+extern const int8_t * score_cursor;
+extern int _tune_num_chans;
+void tune_playnote (int8_t chan , int8_t note );
+void set_midi_channel_mask (uint8_t chan_mask );
+void tune_stopnote (int8_t chan );
+void change_instrument (int chan , int instrument );
+void tune_playscore (const int8_t *score );
+void tune_stepscore (void);
+void tune_stopscore (void);
+void tune_stopchans (void);
+extern const uint8_t score1[];

@@ -1,0 +1,17 @@
+extern volatile int8_t do_crc;
+extern uint32_t crc32_val;
+extern uint32_t flash_crc32_val;
+unsigned short CRCCCITT (uint8_t *data , int16_t length , uint16_t seed , uint16_t final );
+uint32_t crc32_range (uint8_t *ucBuffer , int32_t ulCount );
+uint32_t flash_crc32_range (uint8_t *ucBuffer , int32_t ulCount );
+void crc_test (void);
+int8_t check_crc16 (uint8_t *buffer );
+int8_t update_crc16 (uint8_t *buffer );
+void clear_crc PROTO ((void));
+void clear_crc2 PROTO ((void));
+uint16_t get_crc PROTO ((void));
+uint8_t get_crc_h PROTO ((void));
+uint8_t get_crc_l PROTO ((void));
+uint16_t do_crc16 (uint8_t data );
+void update_struct_crc (uint8_t *sp , int16_t size );
+uint8_t check_struct_crc (uint8_t *sp , int16_t size );
