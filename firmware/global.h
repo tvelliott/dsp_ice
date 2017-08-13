@@ -24,6 +24,9 @@
 #ifndef global_var_h
 #define global_var_h
 
+#include "arm_math.h"
+#include "arm_const_structs.h"
+
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>

@@ -1,7 +1,6 @@
 
 include ./makedefs_fp
 
-VPATH+=./usb_eem
 VPATH+=./third_party/lwip-1.4.0/src/core
 VPATH+=./third_party/lwip-1.4.0/src/core/ipv4
 VPATH+=./third_party/lwip-1.4.0/src/api
@@ -68,6 +67,7 @@ genprotos:
 	@cfunctions -x <netconf.c >protos/netconf_proto.h
 	@cfunctions -x <fpga.c >protos/fpga_proto.h
 	@cfunctions -x <Playtune.c >protos/Playtune_proto.h
+	@cfunctions -x <uart3.c >protos/uart3_proto.h
 
 ${COMPILER}/main.elf: ${COMPILER}/syscalls_newlib.o
 ${COMPILER}/main.elf: ${COMPILER}/startup_stm32f4xx.o
@@ -78,6 +78,8 @@ ${COMPILER}/main.elf: ${COMPILER}/stm32f4xx_it.o
 
 ${COMPILER}/main.elf: ${COMPILER}/stm_timers.o
 ${COMPILER}/main.elf: ${COMPILER}/fpga.o
+
+${COMPILER}/main.elf: ${COMPILER}/uart3.o
 
 #DSP stuff
 ${COMPILER}/main.elf: ${COMPILER}/arm_cfft_radix2_init_f32.o

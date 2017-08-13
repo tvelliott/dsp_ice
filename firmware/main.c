@@ -23,6 +23,10 @@
 
 #define ARM_MATH_CM4
 
+#include "arm_math.h"
+#include "arm_const_structs.h"
+#include "bh_fft_win.c"
+
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
@@ -50,9 +54,6 @@
 #include "fpga.h"
 #include "Playtune.h"
 
-#include "arm_math.h"
-#include "arm_const_structs.h"
-#include "bh_fft_win.c"
 
 //FFT stuff
 #define SAMPLES                    2048            //real 
@@ -184,6 +185,8 @@ int main(void)
   init_flash_sst();
 
   config_changed(); //leave this after read_pdata, so mur_mode gets updated properly
+
+  uart3_init(115200);
 
   if(!lwip_initialized) {
     lwip_initialized=1;
@@ -379,7 +382,7 @@ void check_ms_timer()
       //ne4_count=0;
       midi_off_time++;
 
-      //test_spi();
+      puts_u3("\r\ntest uart3", 12);
     }
 
   }

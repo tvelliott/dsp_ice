@@ -6,10 +6,10 @@
 <B>Project Description</B>
 <p>DSP_ICE is an ICE40-8K FPGA dev system that has been developed using gcc and
 Project Icestorm toolchains.  The hardware has been fully tested except for the
-PDM microphone and serial console (telnet/TCP is currently used as console).  
-Firmware/HDL examples are provided to test the hardware, including an 8-channel, 
-multi-waveform audio synthesizer and peak amplitude, frequency measurement via 
-CMSIS DSP FFT functions utilizing the LTC1420 ADC expansion module.
+PDM microphone.  Firmware/HDL examples are provided to test the hardware,
+including an 8-channel, multi-waveform audio synthesizer and peak amplitude,
+frequency measurement via CMSIS DSP FFT functions utilizing the LTC1420 ADC
+expansion module.
 </p>
 <BR>
 <B>Why Develop Another ICE40 Dev Board?</B>
@@ -39,7 +39,7 @@ Desired features that drove the development were:
 <BR>ST-Link programming header  (can use STM32F4-Discovery as a programming device)
 <BR>I2S Audio interface  (firmware includes example of 8-channel audio synth with sawtooth, pulse, noise waveforms and a song playback via I2S)
 <BR>4 PMOD-Like ports  (include 5V and 3.3V and 8 I/O pins x 4)
-<BR>USB FTDI-based serial interface  (not tested yet, but USB device is detected properly)
+<BR>USB FTDI-based serial interface  (update 8/13/2017 firmware to test the uart interface has been added)
 <BR>40 MHz TCXO crystal driving both FPGA and MCU  (MCU clock div/2)
 
 <BR>
