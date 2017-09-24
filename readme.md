@@ -12,6 +12,13 @@ frequency measurement via CMSIS DSP FFT functions utilizing the LTC1420 ADC
 expansion module.
 </p>
 <BR>
+<B>Update 9/24/17  P25 Decoding working well</B>
+<p>
+Here is an image of time-domain and frequency domain of the demodulated P25 P1 signals.
+<img src="https://github.com/tvelliott/dsp_ice/blob/master/images/p25_decode.gif">
+More later..
+</p>
+<BR>
 <B>Why Develop Another ICE40 Dev Board?</B>
 <p>
 DSP ICE was developed because other boards didn't have all the features desired.
