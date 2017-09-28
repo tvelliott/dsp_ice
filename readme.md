@@ -95,7 +95,10 @@ Desired features that drove the development were:
 <BR>Have assembled 4 boards without any connectivity issues on the 256-pin BGA
 
 <B>Left To Do</B>
-<BR>The PDM michrophone has not been tested yet due to trouble getting the part.
+<BR>The PDM michrophone has not been tested yet due to trouble getting the part.  
+<BR>Digikey has the part in stock, but Cirrus Logic will not allow them to sell 
+<BR>it to certain individuals including the author of this project. There were
+<BR>no further explanations from Cirrus Logic.
 <BR>
 <BR>
 <B>Building The Firmware</B>
