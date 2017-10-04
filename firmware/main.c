@@ -287,7 +287,7 @@ void test_adc() {
 
 
   int index=0;
-  for(i=0;i<2048;i++) {
+  for(i=0;i<1024;i++) {
     Input[index++] = (float32_t) *adc_ptr;  //real
     Input[index++] = (float32_t) 0;  //complex 
     DelayClk3(7);
